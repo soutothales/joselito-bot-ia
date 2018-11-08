@@ -13,29 +13,39 @@ import robocode.control.RobotSpecification;
  */
 
 @SuppressWarnings("serial")
-public class robocodeGA extends FitnessFunction{
+public class robocodeGA extends FitnessFunction {
+	
+	
+	//System.setProperty("java.home", "C:\\Program Files\\Java\\jdk1.8.0_181");
 	
 	// set amount of generations to evolve
 	public static final int MAX_GENERATIONS = 10;
 	// set population size per generation
 	public static final int POPULATION_SIZE = 10;
 	// amount of chromosomes
-	public static final int CHROMOSOME_AMOUNT = 1;
+	public static final int CHROMOSOME_AMOUNT = 6;
 	// track scores
 	public static int robotScore,enemyScore;
+	
+	// number of rounds
+	public static final int NUMBER_OF_ROUNDS = 10;
 
 	public void run() throws Exception {
 
 	    Configuration conf = new DefaultConfiguration(); // setup GA with default config
-	    conf.addGeneticOperator(new MutationOperator(conf, 10)); // add new crossover opp 1/10% rate to the GA
+	    conf.addGeneticOperator(new MutationOperator(conf, 100)); // add new crossover opp 1/10% rate to the GA
 	    conf.setPreservFittestIndividual(true); // use elitsim
 	    conf.setFitnessFunction(this); // Set fitness function to conf
 	    
 	    //set up sample genes - add multiple genes to the array
 	    Gene[] sampleGenes = new Gene[ CHROMOSOME_AMOUNT ];
-		sampleGenes[0] = new DoubleGene(conf, 300, 600 ); 
-		
-		/*sampleGenes[1] = new DoubleGene(conf,-200,200)*/
+	    sampleGenes[0] = new DoubleGene(conf, 0, 700);
+		sampleGenes[1] = new DoubleGene(conf, 100, 700);
+		sampleGenes[2] = new DoubleGene(conf, 200, 700);
+		sampleGenes[3] = new DoubleGene(conf, 300, 700);
+		sampleGenes[4] = new DoubleGene(conf, 250, 700);
+		sampleGenes[5] = new DoubleGene(conf, 150, 700);
+		//sampleGenes[6] = new DoubleGene(conf, 50, 700);
 
 		IChromosome sampleChromosome = new Chromosome(conf, sampleGenes); // create chromo from genes
 		conf.setSampleChromosome(sampleChromosome); // set chromo to conf
@@ -48,7 +58,9 @@ public class robocodeGA extends FitnessFunction{
 		
 		//evolve population
 		for ( int gen = 0; gen<MAX_GENERATIONS; gen++ ) {
+			System.out.println("evolving");
 			population.evolve(); // evolve population
+			System.out.println("after evolve");
 			fittestSolution = population.getFittestChromosome(); // find fittest of population
 			System.out.printf("\nafter %d generations the best solution is %s \n",gen + 1,fittestSolution);	
 		}  	
@@ -62,7 +74,7 @@ public class robocodeGA extends FitnessFunction{
 	}
 	
 	public boolean battleResults(String name,int score){
-		String same = "custom.SamBot*"; // enter robot name here with folder prefix
+		String same = "custom.JoselitoBot*"; // enter robot name here with folder prefix
 		
 		//get results of battle
 		if(name.equals(same)){
@@ -87,18 +99,19 @@ public class robocodeGA extends FitnessFunction{
 		createRobot.create(chromo);	 // create robot - func in createRobot.java
 	}
 	
+	@Override
     protected double evaluate( IChromosome chromosome) {
     	int fitness,
-    		numberOfRounds = 3;
+    		numberOfRounds = NUMBER_OF_ROUNDS;
     	
     	buildRobot(chromosome); // build robot
 	    
-        RobocodeEngine engine = new RobocodeEngine(new java.io.File("")); // create robocode engine
+        RobocodeEngine engine = new RobocodeEngine(); // create robocode engine
         engine.addBattleListener(new battleObserver()); // add battle listener to engine
         engine.setVisible(true); // show battle in GUI ?
         
         BattlefieldSpecification battlefield = new BattlefieldSpecification(800, 600); // battle field size
-        RobotSpecification[] selectedRobots = engine.getLocalRepository("sample.VelociRobot,sample.RamFire,sample.Fire,sample.Crazy,custom.SamBot*"); // which sample bots to take to battle
+        RobotSpecification[] selectedRobots = engine.getLocalRepository("sample.VelociRobot,sample.RamFire,sample.Fire,sample.Crazy,custom.JoselitoBot*"); // which sample bots to take to battle
         BattleSpecification battleSpec = new BattleSpecification(numberOfRounds, battlefield, selectedRobots);
         
         engine.runBattle(battleSpec, true); // run battle - wait till the battle is over

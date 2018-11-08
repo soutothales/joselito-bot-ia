@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="robots"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/Robocode/libs/robocode.jar"/>
+	<classpathentry kind="lib" path="/JGAP/src"/>
+	<classpathentry kind="lib" path="/JGAP/jgap.jar"/>
+	<classpathentry kind="lib" path="/Robocode/libs/codesize-1.1.jar"/>
+	<classpathentry kind="lib" path="/Robocode/libs/picocontainer-2.14.2.jar"/>
+	<classpathentry kind="lib" path="/Robocode/libs/robocode.battle-1.9.3.3.jar"/>
+	<classpathentry kind="lib" path="/Robocode/libs/robocode.core-1.9.3.3.jar"/>
+	<classpathentry kind="lib" path="/Robocode/libs/robocode.host-1.9.3.3.jar"/>
+	<classpathentry kind="lib" path="/Robocode/libs/robocode.repository-1.9.3.3.jar"/>
+	<classpathentry kind="lib" path="/Robocode/libs/robocode.sound-1.9.3.3.jar"/>
+	<classpathentry kind="lib" path="/Robocode/libs/robocode.ui-1.9.3.3.jar"/>
+	<classpathentry kind="lib" path="/Robocode/libs/robocode.ui.editor-1.9.3.3.jar"/>
+	<classpathentry kind="lib" path="/Robocode/libs/roborumble.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
