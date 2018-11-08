@@ -3,7 +3,7 @@ package custom;
 import robocode.*; 
 import java.awt.Color;
 public class JoselitoBot extends Robot {
-int foo = (int)292.6336918311049;
+int foo = (int)373.76722971622684;
 
  public void run() {
 
@@ -11,35 +11,37 @@ setAdjustGunForRobotTurn(true);
 setAdjustRadarForGunTurn(true);
 
 		setColors(Color.red,Color.blue,Color.green);
-		while(true) {
-			turnGunRight(Double.POSITIVE_INFINITY);
-		}
+     while(true) { turnRadarLeft(Double.POSITIVE_INFINITY);}
 
 	}
 	public void onScannedRobot(ScannedRobotEvent e) {
 
 
-		ahead(466.6526370710613);
+		ahead(146.08024966557687);
 
 
-		turnRight(292.6336918311049);
-
- 
-		turnGunRight(410.6638575005446);
+		turnRight(278.01873631774106);
 
  
-		turnRadarRight(466.6526370710613);
-
-
-		fire(417.40613594143116);
-
-		turnLeft(466.6526370710613);
+		turnGunRight(117.75078446841177);
 
  
-		turnGunLeft(417.40613594143116);
-		fire(277.4787836215928);}
+		turnRadarRight(644.142826934345);
+
+
+		fire(373.76722971622684);
+
+		turnLeft(168.00268888507728);
+
+ 
+		turnGunLeft(39.59697385750808);
+		fire(373.76722971622684);}
 public void onHitWall(HitWallEvent e) {
-    back(277.4787836215928);
-    ahead(277.4787836215928 * -1);
+    back(146.08024966557687);
+    ahead(146.08024966557687);
+}
+public void onHitByBullet(HitByBulletEvent e) {
+    turnRight(278.01873631774106);
+    ahead(146.08024966557687 * -1);
 }
 }

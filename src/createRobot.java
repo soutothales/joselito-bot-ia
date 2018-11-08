@@ -50,43 +50,43 @@ public class createRobot {
 						"\nsetAdjustRadarForGunTurn(true);" +
 						"\n" +
 						"\n		setColors(Color.red,Color.blue,Color.green);" +	
-						"\n		while(true) {" +
-						"\n			turnGunRight(Double.POSITIVE_INFINITY);" +
-						"\n		}" +
+						"\n     while(true) {"
+						+ " turnRadarLeft(Double.POSITIVE_INFINITY);" 
+						+ "}" +
 						"\n" +	
 						"\n	}");
 					
 					out.append("\n	public void onScannedRobot(ScannedRobotEvent e) {" +
 							"\n" +
 							"\n"  +
-							"\n		ahead(" + chromo[3] + ");" +
+							"\n		ahead(" + chromo[0] + ");" +
 							"\n" +
 							"\n" +
-							"\n		turnRight("+ chromo[1] +");"  +
-							"\n" +
-							"\n " +
-							"\n		turnGunRight("+ chromo[2] +");"  +
+							"\n		turnRight("+ chromo[2] +");"  +
 							"\n" +
 							"\n " +
-							"\n		turnRadarRight("+ chromo[3] +");"  +
+							"\n		turnGunRight("+ chromo[6] +");"  +
+							"\n" +
+							"\n " +
+							"\n		turnRadarRight("+ chromo[4] +");"  +
 							"\n" +
 							"\n" +
-							"\n		fire("+ chromo[4] +");"
+							"\n		fire("+ chromo[1] +");"
 							+ "\n" +
 							"\n		turnLeft("+ chromo[3] +");"  +
 							"\n" +
 							"\n " +
-							"\n		turnGunLeft("+ chromo[4] +");"
-						+ "\n		fire("+ chromo[0] +");}");
+							"\n		turnGunLeft("+ chromo[7] +");"
+						+ "\n		fire("+ chromo[1] +");}");
 					
 					out.append("\npublic void onHitWall(HitWallEvent e) {" +
 							"\n    back(" + chromo[0] + ");" +
-							"\n    ahead(" + chromo[0] + " * -1);" +
+							"\n    ahead(" + chromo[0] + ");" +
 							"\n}");
 					
 					out.append("\npublic void onHitByBullet(HitByBulletEvent e) {" +
-					"\n    turnRight(" + chromo[6] + ");" +
-					"\n    ahead(" + chromo[3] + " * -1);" +
+					"\n    turnRight(" + chromo[2] + ");" +
+					"\n    ahead(" + chromo[0] + " * -1);" +
 					"\n}");
 					
 					// end of robot
