@@ -21,7 +21,7 @@ public class robocodeGA extends FitnessFunction {
 	// set amount of generations to evolve
 	public static final int MAX_GENERATIONS = 50; // Isso pode ser mudado
 	// set population size per generation
-	public static final int POPULATION_SIZE = 10; // Isso pode ser mudado
+	public static final int POPULATION_SIZE = 50; // Isso pode ser mudado
 	// amount of chromosomes
 	public static final int CHROMOSOME_AMOUNT = 8; // Isso pode ser aumentado ou diminuido
 												   // mas pra isso precisa adicionar ou remover manualmente
@@ -41,14 +41,14 @@ public class robocodeGA extends FitnessFunction {
 	    
 	    //set up sample genes - add multiple genes to the array
 	    Gene[] sampleGenes = new Gene[ CHROMOSOME_AMOUNT ];
-	    sampleGenes[0] = new DoubleGene(conf, 0, 500); // andar
-		sampleGenes[1] = new DoubleGene(conf, 0, 700); // atirar
-		sampleGenes[2] = new DoubleGene(conf, 0, 700); // virar tank direita
-		sampleGenes[3] = new DoubleGene(conf, 0, 700); // virar tank esquerda
-		sampleGenes[4] = new DoubleGene(conf, 0, 700); // virar radar direita
-		sampleGenes[5] = new DoubleGene(conf, 0, 700); // virar radar esquerda
-		sampleGenes[6] = new DoubleGene(conf, 0, 360); // virar arma direita
-		sampleGenes[7] = new DoubleGene(conf, 0, 360); // virar arma esquerda
+	    sampleGenes[0] = new DoubleGene(conf, 300, 1000); // andar
+		sampleGenes[1] = new DoubleGene(conf, 300, 700); // atirar
+		sampleGenes[2] = new DoubleGene(conf, 300, 700); // virar tank direita
+		sampleGenes[3] = new DoubleGene(conf, 300, 700); // virar tank esquerda
+		sampleGenes[4] = new DoubleGene(conf, 300, 700); // virar radar direita
+		sampleGenes[5] = new DoubleGene(conf, 300, 700); // virar radar esquerda
+		sampleGenes[6] = new DoubleGene(conf, 300, 1000); // virar arma direita
+		sampleGenes[7] = new DoubleGene(conf, 300, 1000); // virar arma esquerda
 
 		IChromosome sampleChromosome = new Chromosome(conf, sampleGenes); // create chromo from genes
 		conf.setSampleChromosome(sampleChromosome); // set chromo to conf

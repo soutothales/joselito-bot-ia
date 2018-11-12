@@ -81,7 +81,8 @@ public class createRobot {
 					
 					out.append("\npublic void onHitWall(HitWallEvent e) {" +
 							"\n    back(" + chromo[0] + ");" +
-							"\n    ahead(" + chromo[0] + ");" +
+							"\n		turnLeft("+ chromo[3] +");"  +
+							"\n    ahead(" + chromo[7] + ");" +
 							"\n}");
 					
 					out.append("\npublic void onHitByBullet(HitByBulletEvent e) {" +

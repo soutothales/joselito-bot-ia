@@ -3,7 +3,7 @@ package custom;
 import robocode.*; 
 import java.awt.Color;
 public class JoselitoBot extends Robot {
-int foo = (int)373.76722971622684;
+int foo = (int)625.7329889201851;
 
  public void run() {
 
@@ -17,31 +17,32 @@ setAdjustRadarForGunTurn(true);
 	public void onScannedRobot(ScannedRobotEvent e) {
 
 
-		ahead(146.08024966557687);
+		ahead(537.1596165395937);
 
 
-		turnRight(278.01873631774106);
-
- 
-		turnGunRight(117.75078446841177);
+		turnRight(458.0421354551803);
 
  
-		turnRadarRight(644.142826934345);
-
-
-		fire(373.76722971622684);
-
-		turnLeft(168.00268888507728);
+		turnGunRight(490.23462807709933);
 
  
-		turnGunLeft(39.59697385750808);
-		fire(373.76722971622684);}
+		turnRadarRight(317.69833104397446);
+
+
+		fire(625.7329889201851);
+
+		turnLeft(307.8937706214041);
+
+ 
+		turnGunLeft(475.8893288462546);
+		fire(625.7329889201851);}
 public void onHitWall(HitWallEvent e) {
-    back(146.08024966557687);
-    ahead(146.08024966557687);
+    back(537.1596165395937);
+		turnLeft(307.8937706214041);
+    ahead(475.8893288462546);
 }
 public void onHitByBullet(HitByBulletEvent e) {
-    turnRight(278.01873631774106);
-    ahead(146.08024966557687 * -1);
+    turnRight(458.0421354551803);
+    ahead(537.1596165395937 * -1);
 }
 }
